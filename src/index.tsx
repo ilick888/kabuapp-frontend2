@@ -14,7 +14,6 @@ ReactDOM.render(
           <Route exact path="/:id" component={App}></Route>
         </Switch>
       </BrowserRouter>
-      <App />
     </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
