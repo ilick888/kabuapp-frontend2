@@ -17,6 +17,7 @@ import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import StockTable from "./components/StockTable";
 
 const Copyright = () => {
   return (
@@ -109,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const App = () => {
+const App = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -120,6 +121,8 @@ const App = () => {
   };
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  const id: number = props.match.params.id;
 
   return (
     <div className={classes.root}>
@@ -188,7 +191,9 @@ const App = () => {
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
-              <Paper className={classes.paper}></Paper>
+              <Paper className={classes.paper}>
+                <StockTable id={id} />
+              </Paper>
             </Grid>
           </Grid>
           <Box pt={4}>
