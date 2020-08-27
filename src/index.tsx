@@ -5,16 +5,19 @@ import * as serviceWorker from "./serviceWorker";
 import { MuiThemeProvider } from "@material-ui/core";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { theme } from "./theme";
+import ApiContextProvider from "./components/ApiContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <MuiThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/:id" component={App}></Route>
-        </Switch>
-      </BrowserRouter>
-    </MuiThemeProvider>
+    <ApiContextProvider>
+      <MuiThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/:id" component={App}></Route>
+          </Switch>
+        </BrowserRouter>
+      </MuiThemeProvider>
+    </ApiContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
